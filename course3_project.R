@@ -1,0 +1,67 @@
+setwd('/Users/yuanliu/Desktop/Data Science Track/UCI HAR Dataset')
+#1
+#read test files
+#read subject test file
+subject_test=read.table('test/subject_test.txt',header=F)
+#read feature measurement file
+x_test=read.table('test/X_test.txt',header=F)
+
+#read test label file
+y_test=read.table('test/Y_test.txt',header=FALSE)
+#combine into test dataset
+test_data=cbind(subject_test,x_test,y_test)
+
+#read train files
+#read subject train file
+subject_train=read.table('train/subject_train.txt',header=F)
+
+#read feature measurement file
+x_train=read.table('train/X_train.txt',header=F)
+
+#read train labels file
+y_train=read.table('train/Y_train.txt',header=F)
+
+#combine into train dataset
+train_data=cbind(subject_train,x_train,y_train)
+
+#merge train and test sets to create one
+data1=rbind(test_data,train_data)
+
+#2
+#read features labels file
+features=read.table('features.txt',header=F,colClasses = c('numeric','character'))
+#locate the feature labels with mean and std
+indic=grep("mean()|std()",features[,2])
+feature_data=rbind(x_test,x_train)
+#subsetting
+feature_data_clean=feature_data[,indic]
+feature_name=features[indic,2]
+names(feature_data)=feature_name
+
+#3
+#read activity labels file
+activity=read.table('activity_labels.txt',header=F,colClasses ='character')
+y=rbind(y_test,y_train)
+names(y)='activity.number'
+#re-name label of levels with activity_levels
+y_group<- factor(y$activity.number)
+levels(y_group) <-activity[,2]
+y$activity.name=y_group
+activity=y[,2]
+
+#4
+#clean features labels to get rid of () and replace "-" with "."
+feature_name_clean=sapply(feature_name,function(x){gsub("[()]","",x)})
+feature_name_clean_2=sapply(feature_name_clean,function(x){gsub("-",".",x)})
+names(feature_data_clean)=feature_name_clean_2
+
+subject=rbind(subject_test,subject_train)
+names(subject)='subject'
+data2=cbind(subject,activity,feature_data_clean)
+
+#5
+library(reshape2)
+basedata <- melt(data2,(id.vars=c("subject","activity")))
+data3 <- dcast(basedata, subject + activity~ variable, mean)
+names(data3)[-c(1:2)]=paste("mean of" , names(data3)[-c(1:2)])
+write.table(data3, "project.txt", sep = ",")
