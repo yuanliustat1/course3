@@ -1,0 +1,89 @@
+The final datasets contains 81 columns and 180 rows.Each row includes mean measurement of one feature for each activity and subject.
+
+subject: Subject number from 1 to 30
+activity: Activity names,character
+  WALKING
+  WALKING_UPSTAIRS
+  WALKING_DOWNSTAIRS
+  SITTING
+  STANDING
+  LAYING
+mean of tGravityAcc.mean.Z,	numeric
+mean of tGravityAcc.std.Y,	numeric
+mean of tBodyAccJerk.mean.X,	numeric
+mean of tBodyAccJerk.mean.Z,	numeric
+mean of tBodyAccJerk.std.Y,	numeric
+mean of tBodyGyro.mean.X,	numeric
+mean of tBodyGyro.mean.Z,	numeric
+mean of tBodyGyro.std.Y,	numeric
+mean of tBodyGyroJerk.mean.X,	numeric
+mean of tBodyGyroJerk.mean.Z,	numeric
+mean of tBodyGyroJerk.std.Y,	numeric
+mean of tBodyAccMag.mean,	numeric
+mean of tGravityAccMag.mean,	numeric
+mean of tBodyAccJerkMag.mean,	numeric
+mean of tBodyGyroMag.mean,	numeric
+mean of tBodyGyroJerkMag.mean,	numeric
+mean of fBodyAcc.mean.X,	numeric
+mean of fBodyAcc.mean.Z,	numeric
+mean of fBodyAcc.std.Y,	numeric
+mean of fBodyAcc.meanFreq.X,	numeric
+mean of fBodyAcc.meanFreq.Z,	numeric
+mean of fBodyAccJerk.mean.Y,	numeric
+mean of fBodyAccJerk.std.X,	numeric
+mean of fBodyAccJerk.std.Z,	numeric
+mean of fBodyAccJerk.meanFreq.Y,	numeric
+mean of fBodyGyro.mean.X,	numeric
+mean of fBodyGyro.mean.Z,	numeric
+mean of fBodyGyro.std.Y,	numeric
+mean of fBodyGyro.meanFreq.X,	numeric
+mean of fBodyGyro.meanFreq.Z,	numeric
+mean of fBodyAccMag.std,	numeric
+mean of fBodyBodyAccJerkMag.mean,	numeric
+mean of fBodyBodyAccJerkMag.meanFreq,	numeric
+mean of fBodyBodyGyroMag.std,	numeric
+mean of fBodyBodyGyroJerkMag.mean,	numeric
+mean of fBodyBodyGyroJerkMag.meanFreq,	numeric
+mean of tBodyAcc.mean.X,	numeric
+mean of tBodyAcc.mean.Z,	numeric
+mean of tBodyAcc.std.Y,	numeric
+mean of tGravityAcc.mean.X,	numeric
+mean of tGravityAcc.std.X,	numeric
+mean of tGravityAcc.std.Z,	numeric
+mean of tBodyAccJerk.mean.Y,	numeric
+mean of tBodyAccJerk.std.X,	numeric
+mean of tBodyAccJerk.std.Z,	numeric
+mean of tBodyGyro.mean.Y,	numeric
+mean of tBodyGyro.std.X,	numeric
+mean of tBodyGyro.std.Z,	numeric
+mean of tBodyGyroJerk.mean.Y,	numeric
+mean of tBodyGyroJerk.std.X,	numeric
+mean of tBodyGyroJerk.std.Z,	numeric
+mean of tBodyAccMag.std,	numeric
+mean of tGravityAccMag.std,	numeric
+mean of tBodyAccJerkMag.std,	numeric
+mean of tBodyGyroMag.std,	numeric
+mean of tBodyGyroJerkMag.std,	numeric
+mean of fBodyAcc.mean.Y,	numeric
+mean of fBodyAcc.std.X,	numeric
+mean of fBodyAcc.std.Z,	numeric
+mean of fBodyAcc.meanFreq.Y,	numeric
+mean of fBodyAccJerk.mean.X,	numeric
+mean of fBodyAccJerk.mean.Z,	numeric
+mean of fBodyAccJerk.std.Y,	numeric
+mean of fBodyAccJerk.meanFreq.X,	numeric
+mean of fBodyAccJerk.meanFreq.Z,	numeric
+mean of fBodyGyro.mean.Y,	numeric
+mean of fBodyGyro.std.X,	numeric
+mean of fBodyGyro.std.Z,	numeric
+mean of fBodyGyro.meanFreq.Y,	numeric
+mean of fBodyAccMag.mean,	numeric
+mean of fBodyAccMag.meanFreq,	numeric
+mean of fBodyBodyAccJerkMag.std,	numeric
+mean of fBodyBodyGyroMag.mean,	numeric
+mean of fBodyBodyGyroMag.meanFreq,	numeric
+mean of fBodyBodyGyroJerkMag.std,	numeric
+mean of tBodyAcc.mean.Y,	numeric
+mean of tBodyAcc.std.X,	numeric
+mean of tBodyAcc.std.Z,	numeric
+mean of tGravityAcc.mean.Y,	numeric
