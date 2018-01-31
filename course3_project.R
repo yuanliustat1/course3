@@ -38,17 +38,6 @@ feature_data_clean=feature_data[,indic]
 feature_name=features[indic,2]
 names(feature_data)=feature_name
 
-#3
-#read activity labels file
-activity=read.table('activity_labels.txt',header=F,colClasses ='character')
-y=rbind(y_test,y_train)
-names(y)='activity.number'
-#re-name label of levels with activity_levels
-y_group<- factor(y$activity.number)
-levels(y_group) <-activity[,2]
-y$activity.name=y_group
-activity=y[,2]
-
 #4
 #clean features labels to get rid of () and replace "-" with "."
 feature_name_clean=sapply(feature_name,function(x){gsub("[()]","",x)})
@@ -57,11 +46,25 @@ names(feature_data_clean)=feature_name_clean_2
 
 subject=rbind(subject_test,subject_train)
 names(subject)='subject'
-data2=cbind(subject,activity,feature_data_clean)
+
+y_all=rbind(y_test,y_train)
+names(y_all)='activity.number'
+data2=cbind(subject,y_all,feature_data_clean)
+
+#3
+#read activity labels file
+activity=read.table('activity_labels.txt',header=F,colClasses ='character')
+names(activity)=c('activity.number','activity')
+#left join the activity labels files to y file
+library(dplyr)
+data3=merge(data2,activity,by='activity.number',all.x=T,sort=F)
+#delete the activity number column
+data3=data3[,-c(1)]
 
 #5
 library(reshape2)
-basedata <- melt(data2,(id.vars=c("subject","activity")))
-data3 <- dcast(basedata, subject + activity~ variable, mean)
-names(data3)[-c(1:2)]=paste("mean of" , names(data3)[-c(1:2)])
-write.table(data3, "project.txt", sep = ",")
+basedata <- melt(data3,(id.vars=c("subject","activity")))
+data4 <- dcast(basedata, subject + activity~ variable, mean)
+names(data4)[-c(1:2)]=paste("mean of" , names(data4)[-c(1:2)])
+write.table(data4, "project_2.txt", sep = ",")
+
